@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+
+  mysql-go:
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=go-mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    volumes:
+      - mysql_data_go:/var/lib/mysql      
+      
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  mysql_data_go:      
