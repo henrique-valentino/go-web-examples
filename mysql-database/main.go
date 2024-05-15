@@ -28,10 +28,16 @@ func main() {
 
 	// open connection with database mysql
 	// to this was necessary get driver
-	
+
 	connectionStr := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
-	 username, password, host_db, port_db, name_db)
+		username,
+		password,
+		host_db,
+		port_db,
+		name_db)
+
 	fmt.Println(connectionStr)
+	
 	db, err := sql.Open("mysql", connectionStr)
 	if err != nil {
 		log.Fatal(err)
